@@ -1,9 +1,9 @@
-package com.he.controller.manage;
+package com.he.base;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.he.model.manage.User;
+import com.he.manage.model.User;
 
 public class BaseController {
 	
