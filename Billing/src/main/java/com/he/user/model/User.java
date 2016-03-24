@@ -3,13 +3,14 @@ package com.he.user.model;
 import java.util.Date;
 import java.util.List;
 
+import com.he.base.BaseModel;
 import com.he.org.model.Org;
 
 import lombok.Getter;
 import lombok.Setter;
 @Setter
 @Getter
-public class User {
+public class User extends BaseModel{
     private Long id;
 
     private Integer orgId;

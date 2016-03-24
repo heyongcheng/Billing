@@ -2,11 +2,13 @@ package com.he.org.model;
 
 import java.util.Date;
 
+import com.he.base.BaseModel;
+
 import lombok.Getter;
 import lombok.Setter;
 @Setter
 @Getter
-public class Org {
+public class Org extends BaseModel{
     private Integer id;
 
     private String code;
