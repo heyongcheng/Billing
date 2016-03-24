@@ -3,7 +3,7 @@ package com.he.base;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.he.manage.model.User;
+import com.he.user.model.User;
 
 public class BaseController {
 	

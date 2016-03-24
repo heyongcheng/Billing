@@ -1,7 +1,7 @@
-package com.he.manage.service;
+package com.he.user.service;
 
 import com.he.base.BaseService;
-import com.he.manage.model.User;
+import com.he.user.model.User;
 
 public interface UserService extends BaseService<User>{
 
