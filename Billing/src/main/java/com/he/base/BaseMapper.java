@@ -2,7 +2,7 @@ package com.he.base;
 
 import java.util.List;
 
-public interface BaseService<T> {
+public interface BaseMapper<T> {
 	/**
 	 * 根据主键删除
 	 * @param id

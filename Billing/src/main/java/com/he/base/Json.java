@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Json {
-	private boolean flag;
+	private boolean success;
 	private String msg;
 	private Object data;
 	private List<Object> list;

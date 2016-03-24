@@ -1,6 +1,9 @@
 package com.he.user.model;
 
 import java.util.Date;
+import java.util.List;
+
+import com.he.org.model.Org;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -28,6 +31,8 @@ public class User {
     private Byte sex;
 
     private Byte deleteFlag;
+    /**用户辅助组织列表**/
+    private List<Org> supplyOrgs;
 
     private Date createTime;
 
