@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.he.manage.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.he.manage.model.User" >
+<mapper namespace="com.he.user.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.he.user.model.User" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="org_id" property="orgId" jdbcType="INTEGER" />
     <result column="account" property="account" jdbcType="VARCHAR" />
@@ -39,7 +39,60 @@
     delete from user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.he.manage.model.User" >
+  <!-- 条件查找 -->
+  <select id="count" resultType="long" parameterType="com.he.user.model.User">
+  	select count(*)
+  	from user
+  	<include refid="Where_Condition"/>
+  </select>
+  <select id="find" resultMap="BaseResultMap" parameterType="com.he.user.model.User">
+  	select 
+  	<include refid="Base_Column_List"/>
+  	from user
+  	<include refid="Where_Condition"/>
+  	<include refid="Limit"/>
+  </select>
+  <sql id="Where_Condition">
+  	<trim prefix="where" prefixOverrides="and | or">
+  		  <if test="id != null">
+  		  	and id = #{id,jdbcType=BIGINT}
+  		  </if>
+	  	  <if test="orgId != null" >
+	        and org_id = #{orgId,jdbcType=INTEGER}
+	      </if>
+	      <if test="account != null" >
+	        and account = #{account,jdbcType=VARCHAR}
+	      </if>
+	      <if test="password != null" >
+	        and password = #{password,jdbcType=VARCHAR}
+	      </if>
+	      <if test="name != null" >
+	        and name = #{name,jdbcType=VARCHAR}
+	      </if>
+	      <if test="idCard != null" >
+	        and id_card = #{idCard,jdbcType=VARCHAR}
+	      </if>
+	      <if test="mobile != null" >
+	        and mobile = #{mobile,jdbcType=VARCHAR}
+	      </if>
+	      <if test="address != null" >
+	        and address = #{address,jdbcType=VARCHAR}
+	      </if>
+	      <if test="birthday != null" >
+	        and birthday = #{birthday,jdbcType=DATE}
+	      </if>
+	      <if test="sex != null" >
+	        and sex = #{sex,jdbcType=TINYINT}
+	      </if>
+	      and delete_flag = 0
+    </trim>
+  </sql>
+  <sql id="Limit">
+  	<if test="rows > 0">
+  		limit #{start},#{rows}
+  	</if>
+  </sql>
+  <insert id="insert" parameterType="com.he.user.model.User" >
     insert into user (id, org_id, account, 
       password, name, id_card, 
       mobile, address, birthday, 
@@ -57,7 +110,7 @@
       #{reserved3,jdbcType=VARCHAR}, #{reserved4,jdbcType=VARCHAR}, #{reserved5,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.he.manage.model.User" >
+  <insert id="insertSelective" parameterType="com.he.user.model.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -190,7 +243,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.he.manage.model.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.he.user.model.User" >
     update user
     <set >
       <if test="orgId != null" >
@@ -256,7 +309,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.he.manage.model.User" >
+  <update id="updateByPrimaryKey" parameterType="com.he.user.model.User" >
     update user
     set org_id = #{orgId,jdbcType=INTEGER},
       account = #{account,jdbcType=VARCHAR},

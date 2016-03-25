@@ -18,7 +18,7 @@ import com.he.utils.Security;
 import com.he.utils.StringUtil;
 
 @Controller
-@RequestMapping("/manage")
+@RequestMapping("/user")
 public class UserController extends BaseController{
 
 	@Resource
@@ -30,7 +30,7 @@ public class UserController extends BaseController{
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value="login",method=RequestMethod.GET)
+	@RequestMapping(value="login",method=RequestMethod.POST)
 	@ResponseBody
 	public Json login(String account,String password,HttpServletRequest request){
 		Json json = new Json();
@@ -45,7 +45,7 @@ public class UserController extends BaseController{
 			if(users != null && !users.isEmpty()){
 				if(Security.MD5(password).equals(users.get(0).getPassword())){
 					json.setSuccess(true);
-					getSession(request).setAttribute("l", users.get(0));
+					getSession(request).setAttribute("loginUser", users.get(0));
 					init(users.get(0));
 				}else{
 					json.setMsg("密码错误");
@@ -62,5 +62,13 @@ public class UserController extends BaseController{
 	 */
 	private void init(User user){
 		
+	}
+	/**
+	 * 转发到index系统主页面
+	 * @return
+	 */
+	@RequestMapping("index")
+	public String index(){
+		return "index";
 	}
 }

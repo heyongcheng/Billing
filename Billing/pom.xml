@@ -534,7 +534,7 @@
             </activation>
             <properties>
                 <profiles.jdbc>application-dev.properties</profiles.jdbc>
-                <log.file>log/ose-%d{yyyy-MM-dd}.log</log.file>
+                <log.file>log/billing-%d{yyyy-MM-dd}.log</log.file>
             </properties>
             <build>
                 <plugins>
