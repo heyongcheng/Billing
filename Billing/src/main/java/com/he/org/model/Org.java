@@ -9,15 +9,15 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Org extends BaseModel{
-    private Integer id;
+    private Long id;
 
     private String code;
 
     private String name;
 
-    private Integer parentId;
+    private Long parentId;
 
-    private String desc;
+    private String remark;
 
     private Byte status;
 

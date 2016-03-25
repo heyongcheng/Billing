@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.he.base.BaseModel;
 import com.he.org.model.Org;
+import com.he.role.model.Role;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +14,7 @@ import lombok.Setter;
 public class User extends BaseModel{
     private Long id;
 
-    private Integer orgId;
+    private Long orgId;
 
     private String account;
 
@@ -30,10 +31,16 @@ public class User extends BaseModel{
     private Date birthday;
 
     private Byte sex;
+    
+    private Byte status;
 
     private Byte deleteFlag;
     /**用户辅助组织列表**/
     private List<Org> supplyOrgs;
+    /**用户当前登录组织**/
+    private Org currentOrg;
+    /**用户角色列表**/
+    private List<Role> roles;
 
     private Date createTime;
 

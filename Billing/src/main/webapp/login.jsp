@@ -3,8 +3,8 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<script type="text/javascript" src="${ctx }/js/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<jsp:include page="./js/inc.jsp"/>
 <title>登录</title>
 <script type="text/javascript">
 $(function(){
@@ -30,6 +30,9 @@ $(function(){
 				}else{
 					alert(data.msg);
 				}
+			},
+			error:function(){
+				window.location = '${ctx}/index.jsp';
 			}
 		});
 	});

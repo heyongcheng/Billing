@@ -12,6 +12,7 @@
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="birthday" property="birthday" jdbcType="DATE" />
     <result column="sex" property="sex" jdbcType="TINYINT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
     <result column="delete_flag" property="deleteFlag" jdbcType="TINYINT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
@@ -25,7 +26,7 @@
     <result column="reserved_5" property="reserved5" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, org_id, account, password, name, id_card, mobile, address, birthday, sex, delete_flag, 
+    id, org_id, account, password, name, id_card, mobile, address, birthday, sex, status,delete_flag, 
     create_time, update_time, create_by, update_by, delete_by, reserved_1, reserved_2, 
     reserved_3, reserved_4, reserved_5
   </sql>
@@ -84,6 +85,9 @@
 	      <if test="sex != null" >
 	        and sex = #{sex,jdbcType=TINYINT}
 	      </if>
+	      <if test="status != null" >
+	        and status = #{status,jdbcType=TINYINT}
+	      </if>
 	      and delete_flag = 0
     </trim>
   </sql>
@@ -96,7 +100,7 @@
     insert into user (id, org_id, account, 
       password, name, id_card, 
       mobile, address, birthday, 
-      sex, delete_flag, create_time, 
+      sex, status,delete_flag, create_time, 
       update_time, create_by, update_by, 
       delete_by, reserved_1, reserved_2, 
       reserved_3, reserved_4, reserved_5
@@ -104,7 +108,7 @@
     values (#{id,jdbcType=BIGINT}, #{orgId,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, 
       #{mobile,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, 
-      #{sex,jdbcType=TINYINT}, #{deleteFlag,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{sex,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, #{deleteFlag,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, 
       #{deleteBy,jdbcType=VARCHAR}, #{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR}, 
       #{reserved3,jdbcType=VARCHAR}, #{reserved4,jdbcType=VARCHAR}, #{reserved5,jdbcType=VARCHAR}
@@ -142,6 +146,9 @@
       </if>
       <if test="sex != null" >
         sex,
+      </if>
+      <if test="status != null" >
+        status,
       </if>
       <if test="deleteFlag != null" >
         delete_flag,
@@ -208,6 +215,9 @@
       <if test="sex != null" >
         #{sex,jdbcType=TINYINT},
       </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
       <if test="deleteFlag != null" >
         #{deleteFlag,jdbcType=TINYINT},
       </if>
@@ -273,6 +283,9 @@
       <if test="sex != null" >
         sex = #{sex,jdbcType=TINYINT},
       </if>
+      <if test="status != null" >
+        sex = #{status,jdbcType=TINYINT},
+      </if>
       <if test="deleteFlag != null" >
         delete_flag = #{deleteFlag,jdbcType=TINYINT},
       </if>
@@ -320,6 +333,7 @@
       address = #{address,jdbcType=VARCHAR},
       birthday = #{birthday,jdbcType=DATE},
       sex = #{sex,jdbcType=TINYINT},
+      status = #{status,jdbcType=TINYINT},
       delete_flag = #{deleteFlag,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},

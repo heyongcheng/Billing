@@ -46,7 +46,7 @@ public class UserController extends BaseController{
 				if(Security.MD5(password).equals(users.get(0).getPassword())){
 					json.setSuccess(true);
 					getSession(request).setAttribute("loginUser", users.get(0));
-					init(users.get(0));
+					userService.initUser(users.get(0));
 				}else{
 					json.setMsg("密码错误");
 				}
@@ -55,13 +55,6 @@ public class UserController extends BaseController{
 			}
 		}
 		return json;
-	}
-	/**
-	 * 初始化用户组织、权限
-	 * @param user
-	 */
-	private void init(User user){
-		
 	}
 	/**
 	 * 转发到index系统主页面

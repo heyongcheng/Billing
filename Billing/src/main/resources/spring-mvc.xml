@@ -24,7 +24,20 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
-	
+	<!-- 拦截器 -->
+	<mvc:interceptors>
+		<!-- 用户登录和权限验证 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.he.interceptors.SecurityInterceptor">
+				<property name="excludeUrl">
+					<list>
+						<value>/user/login</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	<!-- 视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/" />
