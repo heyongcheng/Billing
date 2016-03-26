@@ -33,6 +33,7 @@
 				<property name="excludeUrl">
 					<list>
 						<value>/user/login</value>
+                        <value>/resource/load</value>
 					</list>
 				</property>
 			</bean>

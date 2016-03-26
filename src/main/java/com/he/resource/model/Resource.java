@@ -27,4 +27,19 @@ public class Resource extends BaseModel{
     private String icon;
 
     private Integer seq;
+
+    /**
+     * 构建tree
+     * @return
+     */
+    public Tree buildTree(){
+        Tree tree = new Tree();
+        tree.setId(id);
+        tree.setPid(pId);
+        tree.setText(name);
+        Attribute attr = new Attribute();
+        attr.setUrl(path);
+        tree.setAttribute(attr);
+        return tree;
+    }
 }
