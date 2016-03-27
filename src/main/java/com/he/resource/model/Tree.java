@@ -17,6 +17,6 @@ public class Tree {
     private String state;
     private String iconCls;
     private boolean checked;
-    private Attribute attribute;
+    private Attribute attributes;
     private List<Tree> children;
 }

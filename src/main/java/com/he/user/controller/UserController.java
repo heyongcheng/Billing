@@ -61,7 +61,8 @@ public class UserController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("index")
-	public String index(){
+	public String index(HttpServletRequest request){
+        request.setAttribute("dateTime",System.currentTimeMillis());
 		return "index";
 	}
 }

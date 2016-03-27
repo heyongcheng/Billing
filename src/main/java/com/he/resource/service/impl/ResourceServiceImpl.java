@@ -80,7 +80,11 @@ public class ResourceServiceImpl implements ResourceService{
      * @param roots
      */
     private void appendToRoot(List<Tree> roots){
-        findParentTree(roots,new HashSet<Long>());
+        Set<Long> set = new HashSet<Long>();
+        for (Tree tree : roots){
+            set.add(tree.getId());
+        }
+        findParentTree(roots,set);
         Iterator<Tree> iter1 = roots.iterator();
         lab:
         while (iter1.hasNext()){

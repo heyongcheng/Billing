@@ -10,6 +10,5 @@ import lombok.Setter;
 @Getter
 public class Attribute {
     private String url;
-    private String attr1;
-    private String attr2;
+    private Byte type;
 }

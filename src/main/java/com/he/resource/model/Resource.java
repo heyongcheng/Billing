@@ -39,7 +39,8 @@ public class Resource extends BaseModel{
         tree.setText(name);
         Attribute attr = new Attribute();
         attr.setUrl(path);
-        tree.setAttribute(attr);
+        attr.setType(type);
+        tree.setAttributes(attr);
         return tree;
     }
 }
