@@ -14,7 +14,7 @@
             method:'post',
             animate:false,
             onClick:function(node){
-                if(node.attributes != null && node.attributes.type != 1 && node.attributes.url != null){
+                if(node.attributes != null && node.attributes.type != 1 && node.attributes.url != null && node.attributes.url != ''){
                     addPanel(node.text,'${ctx}' + node.attributes.url);
                 }
             }
