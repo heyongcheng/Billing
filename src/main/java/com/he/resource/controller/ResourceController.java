@@ -30,17 +30,16 @@ public class ResourceController extends BaseController{
     @RequestMapping("load")
     @ResponseBody
     public List<Tree> load(HttpServletRequest request){
-        List<Tree> tree = new ArrayList<Tree>();
         User user =  getLoginUser(request);
         //用户资源列表
-        Set<String> urlSet = new HashSet<String>();
+        Set<Long> urlSet = new HashSet<Long>();
         List<com.he.resource.model.Resource> list = new ArrayList<com.he.resource.model.Resource>();
         Iterator<Role> roleIter =  user.getRoles().iterator();
         while (roleIter.hasNext()){
            Iterator<com.he.resource.model.Resource> resIter = roleIter.next().getResources().iterator();
             while(resIter.hasNext()){
                 com.he.resource.model.Resource res = resIter.next();
-                if(urlSet.add(res.getPath())){
+                if(res.getType() == 0 && urlSet.add(res.getId())){
                     list.add(res);
                 }
             }
@@ -50,7 +49,6 @@ public class ResourceController extends BaseController{
         }catch (Exception e){
             e.printStackTrace();
         }
-
         return  null;
     }
 }
