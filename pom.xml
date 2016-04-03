@@ -227,6 +227,7 @@
             <version>2.7.6</version>
         </dependency>
         <!-- timer -->
+      <!--
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
@@ -238,7 +239,7 @@
             <artifactId>quartz-jobs</artifactId>
             <version>2.2.1</version>
         </dependency>
-
+        -->
         <!-- email -->
         <dependency>
             <groupId>javax.mail</groupId>
@@ -543,8 +544,10 @@
                         <artifactId>tomcat7-maven-plugin</artifactId>
                         <version>2.2</version>
                         <configuration>
-                            <url>http://localhost/manager/text</url>
+                            <url>http://localhost/manager/html</url>
                             <server>tomcat7</server>
+                            <username>tomcat</username>
+                            <password>tomcat</password>
                             <!-- 此处的名字必须和setting.xml中配置的ID一致 -->
                             <path>/Billing</path>
                             <!-- 此处的名字是项目发布的工程名 -->

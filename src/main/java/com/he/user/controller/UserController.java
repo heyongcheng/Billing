@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import com.he.base.Grid;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -65,4 +66,20 @@ public class UserController extends BaseController{
         request.setAttribute("dateTime",System.currentTimeMillis());
 		return "index";
 	}
+
+    /**
+     * 查询users
+     * @return
+     */
+    @RequestMapping("users")
+    @ResponseBody
+    public Grid<User> findUsers(User user){
+        Grid<User> grid = new Grid<User>();
+        long count = userService.count(user);
+        if(count > 0){
+            grid.setRows(userService.find(user));
+        }
+        grid.setTotal(count);
+        return grid;
+    }
 }
