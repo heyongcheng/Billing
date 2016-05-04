@@ -31,7 +31,8 @@
         } else {
             $('#easyuiTabs').tabs('add',{
                 title:title,
-                href:url,
+                //href:url,
+                content:'<iframe frameborder="0" src="'+url+'" style="border:0;width:100%;height:98%;"></iframe>',
                 closable:true
             });
         }
@@ -51,7 +52,7 @@
         <ul id="tree"></ul>
     </div>
     <div id="content" region="center" style="width: auto;height: auto">
-        <div id="easyuiTabs" class="easyui-tabs" style="width:auto;height:auto;">
+        <div id="easyuiTabs" class="easyui-tabs" style="width:auto;height:100%;">
             <div title="Home">欢迎</div>
         </div>
     </div>

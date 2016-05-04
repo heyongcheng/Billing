@@ -12,10 +12,10 @@ $(function(){
 		var account = $("#account").val();
 		var password = $("#password").val();
 		if(account == ""){
-			alert("用户名为空");
+			alert("UserName Is Empty");
 			return;
 		}else if(password == ""){
-			alert("密码为空");
+			alert("Password Is Empty");
 			return;
 		}
 		$.ajax({
@@ -45,7 +45,7 @@ $(function(){
 			<table>
 				<tr>
 					<td>
-						用户名:
+						UserName:
 					</td>
 					<td>
 						<input type="text" id="account" name="account">
@@ -53,7 +53,7 @@ $(function(){
 				</tr>
 				<tr>
 					<td>
-						密码:
+						Password:
 					</td>
 					<td>
 						<input type="password" id="password" name="password">
@@ -61,8 +61,8 @@ $(function(){
 				</tr>
 				<tr>
 					<td align="center" colspan="2">
-						<input type="button" id="login" value="登录">
-						<input type="reset" id="reset" value="取消">
+						<input type="button" id="login" value="login">
+						<input type="reset" id="reset" value="reset">
 					</td>
 				</tr>
 			</table>
